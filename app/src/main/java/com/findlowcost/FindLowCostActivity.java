@@ -79,7 +79,7 @@ public class FindLowCostActivity extends AppCompatActivity {
             if (gridContentsAreValid(potentialGridContents)) {
                 loadGrid(potentialGridContents);
             } else {
-                new AlertDialog.Builder(getBaseContext())
+                new AlertDialog.Builder(FindLowCostActivity.this)
                         .setTitle("Invalid Grid")
                         .setMessage(R.string.invalid_grid_message)
                         .setPositiveButton("OK", null)
