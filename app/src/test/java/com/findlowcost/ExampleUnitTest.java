@@ -134,7 +134,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void clickingGoWithValidDataDisplaysYesIfPathSuccessfulfiveone() {
+    public void clickingGoWithValidDataDisplaysYesIfPathSuccessfulfiveoneTest() {
         EditText customGridContents = (EditText) activity.findViewById(R.id.custom_grid_contents);
 
         customGridContents.setText("5\n"
