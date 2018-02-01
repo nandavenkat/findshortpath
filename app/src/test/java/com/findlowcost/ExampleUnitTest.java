@@ -167,8 +167,28 @@ public class ExampleUnitTest {
         TextView pathTaken = (TextView)  activity.findViewById(R.id.results_path_taken);
         assertThat(resultsView.getText().toString(), equalTo("No"));
         assertThat(totalCost.getText().toString(), equalTo("0"));
-        assertThat(pathTaken.getText().toString().replace("\t", " "), equalTo(" "));
+        assertThat(pathTaken.getText().toString(), equalTo(""));
 
     }
+    @Test
+    public void clickingGoWithValidDataDisplaysYesForNegativeInput() {
+        EditText customGridContents = (EditText) activity.findViewById(R.id.custom_grid_contents);
+
+        customGridContents.setText("6 3 -5 9 2\n" +
+                "-5 2 4 10 3\n" +
+                "3 -2 6 10 4\n"+
+                "6 -1 -2 10 5"
+        );
+        activity.findViewById(R.id.go_button).performClick();
+
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_success);
+        TextView totalCost = (TextView)  activity.findViewById(R.id.results_total_cost);
+        TextView pathTaken = (TextView)  activity.findViewById(R.id.results_path_taken);
+        assertThat(resultsView.getText().toString(), equalTo("Yes"));
+        assertThat(totalCost.getText().toString(), equalTo("2"));
+        assertThat(pathTaken.getText().toString().replace("\t", " "), equalTo("2 3 4 1 1"));
+
+    }
+
 
 }
